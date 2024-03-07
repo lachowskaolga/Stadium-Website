@@ -1,0 +1,15 @@
+{% extends 'events/base.html' %}
+{% block content %}
+
+	<center>
+	<div class='shadow p-4 mb-5 bg-body rounded'>
+	<h1>Welcome to Stadium Network! </h1><br/>
+	<br/>
+	{{ cal|safe }}
+	<br/>
+	{{ time }}
+	<br/><br/><br/><br/>
+	Copyright (c) {{ current_year }}
+	</center>
+	</div>
+{% endblock %}

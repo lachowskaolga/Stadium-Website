@@ -1,0 +1,29 @@
+{% extends 'events/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+	{% if user == event.manager %}
+	<div class='shadow p-4 mb-5 bg-body rounded'>
+	<h1> Edit Event: </h1>
+	Logged in User: {{ user }}
+	<br/>
+	Event Manager: {{ event.manager }}
+	<br/><br/>
+	<form action="" method=POST>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<br/>
+		<input type="submit" value="Update" class="btn btn-outline-secondary">
+		{% else %}
+		<center>
+		<div class="alert alert-danger" role="alert">
+		<h2>Access denied! Only event's Manager can update this event...</h2>
+		Logged in User: {{ user }}
+		<br/>
+		Event Manager: {{ event.manager }}
+
+		</div>
+		</center>
+	</div>
+	{% endif %}
+{% endif %}
+{% endblock %}
